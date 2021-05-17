@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admins
+  get '/' => 'public/homes#top'
+  get '/about' => 'public/homes#about'
+
   namespace :public do
     devise_for :customers, controllers: {
       sessions: 'public/customers/sessions',
