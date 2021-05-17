@@ -1,7 +1,6 @@
 class Public::CartItemsController < ApplicationController
   def index
     # @cart_item = Cart_items.find(params[:id])
-    # @cart_item = Cart_items.all
   end
 
 #   def destroy
