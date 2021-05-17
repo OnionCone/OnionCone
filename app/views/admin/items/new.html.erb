@@ -14,7 +14,3 @@
   <%= f.radio_button :is_deleted, "0" %>販売中 <%= f.radio_button :is_deleted, "1" %>販売停止中
   <%= f.submit '新規登録' %>
 <% end %>
-
-<% @items.each do |i| %>
-  <%= i.name %>
-<% end %>
