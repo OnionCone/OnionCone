@@ -16,7 +16,7 @@ class  Admin::ItemsController < ApplicationController
   def update
     item = Item.find(params[:id])
     item.update(item_params)
-    redirect_to todolist_path(item.id)
+    redirect_to edit_admin_item_path(item)
   end
 
   private
