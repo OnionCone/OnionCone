@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   namespace :public do
     devise_for :customers, controllers: {
       sessions: 'public/customers/sessions',
