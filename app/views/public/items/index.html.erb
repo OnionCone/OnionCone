@@ -1,0 +1,16 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <td><h1>商品一覧</h1></td>
+      <td><p>(全<%= @item.count %>件)</p></td>
+    </tr>
+  </thead>
+</table>
+<% @item.each do |item| %>
+  <tr>
+    <td><%= attachment_image_tag(item, :image, :fill, 50, 70, fallback: "no-image-icon.jpg") %></td>
+    <td><%= item.name %></td>
+    <td><%= item.price %></td>
+  </tr>
+<% end %>
+<%= paginate @items %>
