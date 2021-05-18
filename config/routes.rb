@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   devise_for :admins
+
+  namespace :admin do
+      root 'orders#index'
+      resources :items,only: [:index,:new,:create,:show,:edit,:update]
+      resources :genres,only: [:index,:create,:edit,:update]
+      resources :customers,only: [:index,:show,:edit,:update]
+      resources :orders,only: [:show,:update]
+  end
+
   namespace :public do
     devise_for :customers, controllers: {
       sessions: 'public/customers/sessions',
