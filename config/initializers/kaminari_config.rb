@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Kaminari.configure do |config|
   # config.default_per_page = 25
   # config.max_per_page = nil
@@ -8,5 +10,7 @@ Kaminari.configure do |config|
   # config.page_method_name = :page
   # config.param_name = :page
 
+  # config.max_pages = nil
+  # config.params_on_first_page = false
   config.default_per_page = 10
 end

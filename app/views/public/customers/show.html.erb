@@ -1,0 +1,40 @@
+<h1>マイページ</h1>
+<h2>登録情報</h2>
+<%= link_to "編集する", edit_customer_path(@customer) %>
+
+<table>
+  <thead>
+    <th>氏名</th>
+    <th>カナ</th>
+    <th>郵便番号</th>
+    <th>住所</th>
+    <th>電話番号</th>
+    <th>メールアドレス</th>
+  </thead>
+  <tbody>
+    <td><%= @customer.full_name %></td>
+    <td><%= @customer.full_name_kana %></td>
+    <td><%= @customer.postal_code %></td>
+    <td><%= @customer.address %></td>
+    <td><%= @customer.telephone_number %></td>
+    <td><%= @customer.email %></td>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <th>配送先</th>
+    <th>注文履歴</th>
+  </thead>
+  <tbody>
+    <td>一覧を見る（リンク）</td>
+    <td>一覧を見る（リンク)</td>
+  </tbody>
+</table>
+
+
+      <li>
+        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+      </li>
+
+
