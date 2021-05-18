@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   devise_for :admins
+  namespace :public do
+    resources :items, only: [:index, :show]
+    resources :cart_items, only: [:index, :update, :destroy, :create]
+    delete 'cart_items' => 'cart_items#destroy_all', as: 'cart_item_all'
+    resources :addresses, only: [:index, :update, :destroy, :create, :edit]
   devise_for :customers
   scope module: 'public' do
     root to: 'homes#top'
