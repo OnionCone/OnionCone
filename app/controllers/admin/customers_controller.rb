@@ -8,10 +8,17 @@ class Admin::CustomersController < ApplicationController
   end
 
   def edit
+    @customer = Customer.find(params[:id])
   end
 
   def update
+    customer = Customer.find(params[:id])
+    customer.update(customer_params)
+    redirect_to admin_customer_path(customer.id)
   end
-  
-  # enum blood_type: { A: 0, B: 1, O: 2, AB: 3 }
+
+  private
+  def customer_params
+    params.require(:customer).permit(:first_name,:last_name,:first_name_kana,:last_name_kana,:postal_code,:address,:telephone_number,:email,:is_deleted)
+  end
 end

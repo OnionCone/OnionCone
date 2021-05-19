@@ -24,12 +24,17 @@
     <td>郵便番号</td>
     <td><%= @customer.postal_code %></td>
   </tr>
-    <tr>
+  <tr>
     <td>メールアドレス</td>
     <td><%= @customer.email %></td>
   </tr>
-</table>
+  <!--ステータスおかしい-->
+<!--  <tr>-->
+<!--    <td>会員ステータス</td>-->
+<!--    <td><= @customer.is_deleted %></td>-->
+<!--  </tr>-->
+<!--</table>-->
 
 <div>
-  <%= link_to "編集する" edit_admin_customer_path %>   <%= link_to "注文履歴一覧" root_path %>
+  <%= link_to "編集する", edit_admin_customer_path %>   <%= link_to "注文履歴一覧", root_path %>
 </div>

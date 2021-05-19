@@ -3,11 +3,11 @@ class  Admin::ItemsController < ApplicationController
     @items = Item.all
     @item = Item.new
   end
-  
+
   def show
     @item = Item.find(params[:id])
   end
-  
+
   def new
     @item = Item.new
   end
@@ -15,7 +15,7 @@ class  Admin::ItemsController < ApplicationController
   def create
     item = Item.new(item_params)
     item.save
-    redirect_to "/admin/items/new"
+    redirect_to new_admin_item_path
   end
 
   def edit

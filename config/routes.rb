@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :admins
-
   namespace :admin do
       root 'orders#index'
       resources :items,only: [:index,:new,:create,:show,:edit,:update]
@@ -25,8 +24,8 @@ Rails.application.routes.draw do
     resources :customers, only: [:edit, :update]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  namespace :admin do
-    resources :items, only: [:new, :create, :edit, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
-  end
+  # namespace :admin do
+  #   resources :items, only: [:new, :create, :edit, :update]
+  #   resources :customers, only: [:index, :show, :edit, :update]
+  # end
 end
