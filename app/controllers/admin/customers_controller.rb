@@ -13,7 +13,5 @@ class Admin::CustomersController < ApplicationController
   def update
   end
   
-  def full_name(customer)
-  "#{customer[:first_name]} #{customer[:last_name]}"
-  end
+  # enum blood_type: { A: 0, B: 1, O: 2, AB: 3 }
 end
