@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :update, :destroy, :create]
     delete 'cart_items' => 'cart_items#destroy_all', as: 'cart_item_all'
     resources :addresses, only: [:index, :update, :destroy, :create, :edit]
+  end
   devise_for :customers
+
   scope module: 'public' do
     root to: 'homes#top'
     get '/about', to: 'homes#about'
@@ -28,4 +30,6 @@ Rails.application.routes.draw do
     resources :items, only: [:new, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
   end
+
 end
+
