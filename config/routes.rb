@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :admins
-
   namespace :admin do
       root 'orders#index'
       resources :items,only: [:index,:new,:create,:show,:edit,:update]
       resources :genres,only: [:index,:create,:edit,:update]
       resources :customers,only: [:index,:show,:edit,:update]
       resources :orders,only: [:show,:update]
+      resources :order_details,only: [:update]
   end
 
   namespace :public do
@@ -14,9 +14,10 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :update, :destroy, :create]
     delete 'cart_items' => 'cart_items#destroy_all', as: 'cart_item_all'
     resources :addresses, only: [:index, :update, :destroy, :create, :edit]
+    resources :orders, only: [:index, :show]
   end
   devise_for :customers
-  
+
   scope module: 'public' do
     root to: 'homes#top'
     get '/about', to: 'homes#about'
@@ -28,8 +29,9 @@ Rails.application.routes.draw do
     post '/orders/confirm', to: 'orders#confirm', as: 'confirm'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  namespace :admin do
-    resources :items, only: [:new, :create, :edit, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
-  end
+  # namespace :admin do
+  #   resources :items, only: [:new, :create, :edit, :update]
+  #   resources :customers, only: [:index, :show, :edit, :update]
+  # end
 end
+
