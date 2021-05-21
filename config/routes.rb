@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show]
   end
   devise_for :customers
+
   scope module: 'public' do
     root to: 'homes#top'
     get '/about', to: 'homes#about'
@@ -31,3 +32,4 @@ Rails.application.routes.draw do
   #   resources :customers, only: [:index, :show, :edit, :update]
   # end
 end
+
