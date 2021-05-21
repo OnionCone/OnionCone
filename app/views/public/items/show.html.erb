@@ -1,12 +1,14 @@
-<p><%= attachment_image_tag(@item, :image, :fill, 70, 70, fallback: "no-image-icon.jpg") %></p>
-<h1><%= @item.name %></h1>
-<p><%= @item.introduction %></p>
-<p><%= @item.price %></p>
-
-<!--考え中-->
-<!--%= form_with model:cart_item,local:true do |f| %>-->
-<!--    %= f.label :amount, "数量" %>-->
-<!--    %= f.text_field :amount, @current_item_array %>-->
-<!--% end %>-->
-
-<%= link_to 'カートに入れる', cart_item_path(cart_item)%>
+<div class="container">
+  <div class="row">
+    <p><%= attachment_image_tag(@item, :image, :fill, 70, 70) %></p>
+    <h1><%= @item.name %></h1>
+    <p><%= @item.introduction %></p>
+    <p><%= @item.price %></p>
+    <%= form_with model: @cart_item, url: public_cart_items_path, method: :post, local: true do |f| %>
+      <%= f.hidden_field :item_id, :value => @item.id %>
+      <!--商品の情報（@item）を保存できる-->
+      <%= f.select :amount, [["1", 1], ["2", 2], ["3", 3], ["4", 4]] , include_blank: "個数選択" %>
+      <%= f.submit 'カートに入れる' %>
+    <% end %>
+  </div>
+</div>

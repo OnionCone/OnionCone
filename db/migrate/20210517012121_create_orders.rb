@@ -9,7 +9,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.integer :total_payment
       t.integer :payment_method
       t.integer :status
-      
+
       t.timestamps
     end
   end
