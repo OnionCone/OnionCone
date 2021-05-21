@@ -27,14 +27,7 @@
     <th>注文履歴</th>
   </thead>
   <tbody>
-    <td>一覧を見る（リンク）</td>
+    <td><%= link_to '一覧を見る', public_addresses_path %></td>
     <td>一覧を見る（リンク)</td>
   </tbody>
 </table>
-
-
-      <li>
-        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-      </li>
-
-

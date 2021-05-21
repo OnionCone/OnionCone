@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe', to: 'customers#unsubscribe'
     patch 'customers/withdrawal', to: 'customers#withdrawal', as: 'withdrawal'
     resources :customers, only: [:edit, :update]
+    resources :orders
+    post '/orders/confirm', to: 'orders#confirm', as: 'confirm'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # namespace :admin do

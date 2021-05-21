@@ -2,6 +2,7 @@ class Public::ItemsController < ApplicationController
   def index
     @item = Item.all
     @items = Item.page(params[:page]).per(8)
+    @customer = current_customer
   end
   def show
     @item = Item.find(params[:id])
