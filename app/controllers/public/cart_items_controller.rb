@@ -10,11 +10,11 @@ class Public::CartItemsController < ApplicationController
 #     redirect_to cart_item_path(@cart_item.id)  # 投稿一覧画面へリダイレクト
 #   end
 
-  def destroy_all
-    @cart_item = Cart_item.find(params[:id])
-    Article.destroy_all
-    redirect_to cart_item_path(@cart_item.id)
-  end
+  # def destroy_all
+  #   @cart_item = Cart_item.find(params[:id])
+  #   Article.destroy_all
+  #   redirect_to cart_item_path(@cart_item.id)
+  # end
 
   def create
     @cart_item = CartItem.new(cart_item_params)
