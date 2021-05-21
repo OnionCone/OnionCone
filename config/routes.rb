@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :update, :destroy, :create]
     delete 'cart_items' => 'cart_items#destroy_all', as: 'cart_item_all'
     resources :addresses, only: [:index, :update, :destroy, :create, :edit]
+  end
   devise_for :customers
+  
   scope module: 'public' do
     root to: 'homes#top'
     get '/about', to: 'homes#about'
@@ -22,6 +24,8 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe', to: 'customers#unsubscribe'
     patch 'customers/withdrawal', to: 'customers#withdrawal', as: 'withdrawal'
     resources :customers, only: [:edit, :update]
+    resources :orders
+    post '/orders/confirm', to: 'orders#confirm', as: 'confirm'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do

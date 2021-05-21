@@ -10,7 +10,8 @@
   </head>
 
   <body>
-  
+    <%= render partial: 'layouts/header', locals: { customer: @customer }%>
     <%= yield %>
+    <%= render partial: 'layouts/footer', locals: { customer: @customer }%>
   </body>
 </html>
