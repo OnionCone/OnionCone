@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  registrations: 'admins/registrations'
+}
   namespace :admin do
       root 'orders#index'
       resources :items,only: [:index,:new,:create,:show,:edit,:update]
@@ -16,7 +20,11 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :update, :destroy, :create, :edit]
     resources :orders, only: [:index, :show]
   end
-  devise_for :customers
+  devise_for :customers, controllers: {
+  sessions:      'customers/sessions',
+  passwords:     'customers/passwords',
+  registrations: 'customers/registrations'
+}
 
   scope module: 'public' do
     root to: 'homes#top'

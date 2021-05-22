@@ -11,6 +11,6 @@
   <h4>税抜き価格</h4>
   <%= f.text_field :price %> 円
   <h4>販売ステータス</h4>
-  <%= f.radio_button :is_deleted, "0" %>販売中 <%= f.radio_button :is_deleted, "1" %>販売停止中
+  <%= f.radio_button :is_deleted, "0" %>販売停止中 <%= f.radio_button :is_deleted, "1" %>販売中
   <%= f.submit '編集する' %>
 <% end %>

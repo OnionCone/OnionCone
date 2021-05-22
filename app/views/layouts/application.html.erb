@@ -9,18 +9,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
-        <%= yield %>
-      </main>
-    <%= render 'layouts/footer' %>
+    <%= render 'layouts/header', { customer: current_customer} %>
+      <%= yield %>
   </body>
-  <footer>
-  <div class='container mt-5'>
-    <div class='row'>
-      <div class='mx-auto'>
-        <p>CopyRight NaganoCake</p>
-      </div>
-    </div>
-  </div>
-</footer>
+  <footer><%= render 'layouts/footer', { customer: current_customer} %></footer>
 </html>
