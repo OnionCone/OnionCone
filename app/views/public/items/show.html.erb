@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <p><%= attachment_image_tag(@item, :image, :fill, 70, 70) %></p>
+    <p><%= attachment_image_tag @item, :image, format: 'jpeg', size: "100x100" %></p>
     <h1><%= @item.name %></h1>
     <p><%= @item.introduction %></p>
     <p><%= @item.price %></p>

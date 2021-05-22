@@ -32,6 +32,7 @@ class Public::OrdersController < ApplicationController
 
   def index
     @order = Order.all
+    # @order.customer_id = current_customer.id
   end
 
   def show

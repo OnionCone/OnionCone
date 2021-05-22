@@ -1,6 +1,6 @@
 <h1>マイページ</h1>
 <h2>登録情報</h2>
-<!--<= link_to "編集する", edit_customer_path(@customer) >-->
+<%= link_to "編集する", edit_customer_path(@customer) %>
 
 <table>
   <thead>
@@ -12,12 +12,12 @@
     <th>メールアドレス</th>
   </thead>
   <tbody>
-    <!--<td>< @customer.full_name ></td>-->
-    <!--<td><= @customer.full_name_kana ></td>-->
-    <!--<td><= @customer.postal_code %></td>-->
-    <!--<td><= @customer.address %></td>-->
-    <!--<td><= @customer.telephone_number %></td>-->
-    <!--<td><= @customer.email %></td>-->
+    <td><% @customer.full_name %></td>
+    <td><%= @customer.full_name_kana %></td>
+    <td><%= @customer.postal_code %></td>
+    <td><%= @customer.address %></td>
+    <td><%= @customer.telephone_number %></td>
+    <td><%= @customer.email %></td>
   </tbody>
 </table>
 
