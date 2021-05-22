@@ -9,19 +9,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-<<<<<<< HEAD
-    <%= render 'layouts/header' %>
-      <%= yield %>
-  </body>
-  <footer>
-      <%= render 'layouts/footer' %>
-  </footer>
-</html>
-=======
     <%= render 'layouts/header', { customer: current_customer} %>
         <%= yield %>
       </main>
   </body>
   <%= render 'layouts/footer', { customer: current_customer} %>
 </html>
->>>>>>> origin/seiseisei
