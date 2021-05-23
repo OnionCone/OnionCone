@@ -32,8 +32,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
-    @order.save!
+    @order = Order.new(order_confirm_params)
+    binding.pry
+    @order.save
     redirect_to complete_path
   end
 
@@ -51,5 +52,10 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:payment_method, :postal_code, :address, :name)
   end
+
+  def order_confirm_params
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+  end
+
 
 end
