@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  registrations: 'admins/registrations'
+}
   namespace :admin do
       root 'homes#index'
       resources :items,only: [:index,:new,:create,:show,:edit,:update]
@@ -9,7 +13,6 @@ Rails.application.routes.draw do
       resources :order_details,only: [:update]
   end
 
-
   # namespace :public do
   #   resources :items, only: [:index, :show]
   #   resources :cart_items, only: [:index, :update, :destroy, :create]
@@ -18,7 +21,11 @@ Rails.application.routes.draw do
   #   resources :orders, only: [:index, :show]
   # end
 
-  devise_for :customers
+  devise_for :customers, controllers: {
+  sessions:      'customers/sessions',
+  passwords:     'customers/passwords',
+  registrations: 'customers/registrations'
+}
 
   scope module: 'public' do
     root to: 'homes#top'
