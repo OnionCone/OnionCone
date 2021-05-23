@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   devise_for :admins
   namespace :admin do
-      root 'orders#index'
+      root 'homes#index'
       resources :items,only: [:index,:new,:create,:show,:edit,:update]
       resources :genres,only: [:index,:create,:edit,:update]
       resources :customers,only: [:index,:show,:edit,:update]
       resources :orders,only: [:show,:update]
       resources :order_details,only: [:update]
   end
+
 
   # namespace :public do
   #   resources :items, only: [:index, :show]
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   #   resources :addresses, only: [:index, :update, :destroy, :create, :edit]
   #   resources :orders, only: [:index, :show]
   # end
+
   devise_for :customers
 
   scope module: 'public' do
@@ -32,6 +34,8 @@ Rails.application.routes.draw do
     delete 'cart_items' => 'cart_items#destroy_all', as: 'cart_item_all'
     resources :addresses, only: [:index, :update, :destroy, :create, :edit]
     resources :orders, only: [:index, :show]
+    get '/orders/complete', to: 'orders#complete', as: 'complete'
+
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # namespace :admin do
