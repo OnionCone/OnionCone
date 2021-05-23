@@ -1,6 +1,7 @@
 class Public::CartItemsController < ApplicationController
   def index
     @cart_items = current_customer.cart_items
+    @total = 0
   end
 
 
@@ -27,6 +28,7 @@ class Public::CartItemsController < ApplicationController
     cart_item.update(cart_item_params)
     redirect_to cart_item_path(@cart_item.id)
   end
+  
 
   private
   def cart_item_params

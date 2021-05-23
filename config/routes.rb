@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   registrations: 'admins/registrations'
 }
   namespace :admin do
-      root 'orders#index'
+      root 'homes#index'
       resources :items,only: [:index,:new,:create,:show,:edit,:update]
       resources :genres,only: [:index,:create,:edit,:update]
       resources :customers,only: [:index,:show,:edit,:update]

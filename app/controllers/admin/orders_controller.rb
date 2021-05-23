@@ -11,4 +11,9 @@ class Admin::OrdersController < ApplicationController
   def update
   end
 
+  def price_tax
+    self.price * 1.1
+  end
+
+
 end
