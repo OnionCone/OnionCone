@@ -9,13 +9,13 @@ Rails.application.routes.draw do
       resources :order_details,only: [:update]
   end
 
-  namespace :public do
-    resources :items, only: [:index, :show]
-    resources :cart_items, only: [:index, :update, :destroy, :create]
-    delete 'cart_items' => 'cart_items#destroy_all', as: 'cart_item_all'
-    resources :addresses, only: [:index, :update, :destroy, :create, :edit]
-    resources :orders, only: [:index, :show]
-  end
+  # namespace :public do
+  #   resources :items, only: [:index, :show]
+  #   resources :cart_items, only: [:index, :update, :destroy, :create]
+  #   delete 'cart_items' => 'cart_items#destroy_all', as: 'cart_item_all'
+  #   resources :addresses, only: [:index, :update, :destroy, :create, :edit]
+  #   resources :orders, only: [:index, :show]
+  # end
   devise_for :customers
 
   scope module: 'public' do
@@ -27,6 +27,11 @@ Rails.application.routes.draw do
     resources :customers, only: [:edit, :update]
     resources :orders, only: [:new, :edit, :update, :destroy]
     post '/orders/confirm', to: 'orders#confirm', as: 'confirm'
+    resources :items, only: [:index, :show]
+    resources :cart_items, only: [:index, :update, :destroy, :create]
+    delete 'cart_items' => 'cart_items#destroy_all', as: 'cart_item_all'
+    resources :addresses, only: [:index, :update, :destroy, :create, :edit]
+    resources :orders, only: [:index, :show]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # namespace :admin do
