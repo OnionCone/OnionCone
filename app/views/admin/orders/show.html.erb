@@ -37,8 +37,9 @@
     <td><%= o.name %></td>
     <td><%= @detail.price %></td>
     <!--orderモデルに定義↓-->
-    <td><%= @detail.amount%></td> 
+    <td><%= @detail.amount%></td>
     <td><%= o.subtotal %></td>
+    <%= @total += o.subtotal %>
     <%= form_with model:o, url: admin_order_detail_path(@detail), method: :patch do |f| %>
     <td>
     	<%= f.select :making_status, [ ["着手不可", 0], ["制作待ち", 1], ["製作中", 2], ["制作完了", 3] ] %>
@@ -51,14 +52,15 @@
 <table>
   <tr>
     <td>商品合計</td>
-    <td><%= @order.total_payment %></td>
+    <td><%= @total %></td>
   </tr>
   <tr>
     <td>送料</td>
     <td><%= @order.shipping_cost %></td>
+    <!--800べたうちにする？-->
   </tr>
   <tr>
     <td>請求金額合計</td>
-    <td><%= #{ @order.total_payment + @order.shipping_cost} %></td>
+    <td><%= @total + 800 %></td>
   </tr>
 </table>

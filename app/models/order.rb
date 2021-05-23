@@ -8,12 +8,5 @@ class Order < ApplicationRecord
   def full_name
     self.last_name + " " + self.first_name
   end
-
-  def tax_price
-    @cart_item.item.price * 1.1
-  end
-
-  #def subtotal
-    #cart_item.item.price * cart_item.amount
-  #end
 end
+
