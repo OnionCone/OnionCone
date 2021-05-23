@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :update, :destroy, :create, :edit]
     resources :orders, only: [:index, :show]
   end
+
   devise_for :customers
 
   scope module: 'public' do
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:edit, :update]
     resources :orders
     post '/orders/confirm', to: 'orders#confirm', as: 'confirm'
+    get '/orders/complete', to: 'orders#complete', as: 'complete'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # namespace :admin do
