@@ -14,11 +14,11 @@ class Customer < ApplicationRecord
   def full_name_kana
     self.last_name_kana + " " + self.first_name_kana
   end
+
   enum is_deleted: {Invalid: true, Valid: false}
 
   #退会後ログイン制限
   #def active_for_authentication?
    #super && (self.is_deleted == "Valid")
   #end
-
 end

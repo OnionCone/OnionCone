@@ -10,7 +10,7 @@
   </head>
   <body>
     <%= render 'layouts/header', { customer: current_customer} %>
-      <%= yield %>
+        <%= yield %>
   </body>
-  <footer><%= render 'layouts/footer', { customer: current_customer} %></footer>
+  <%= render 'layouts/footer', { customer: current_customer} %>
 </html>
