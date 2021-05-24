@@ -46,7 +46,6 @@ class Public::OrdersController < ApplicationController
     end
     #cart_item.destroy_all
     redirect_to complete_path
-
   end
 
   def index
@@ -72,3 +71,4 @@ class Public::OrdersController < ApplicationController
                                   :shipping_cost, :total_payment, :payment_method, :status)
   end
 end
+
