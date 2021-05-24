@@ -1,31 +1,41 @@
-<h1>Logo</h1>
-  <% if admin_signed_in? %>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<header>
+  <nav class="navbar navbar-dark">
     <div class="container">
-      <a><span>NaganoCake</span></a>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-          <li><%= link_to '商品一覧', admin_items_path,class: 'nav-link text-light' %></li>
-          <li><%= link_to '会員一覧',admin_customers_path,class: 'nav-link text-light' %></li>
-          <li><%= link_to '注文履歴一覧',admin_root_path,class: 'nav-link text-light'%></li>
-          <li><%= link_to 'ジャンル一覧', admin_genres_path, class: 'nav-link text-light' %></li>
-        </ul>
+      <a class="navbar-brand" href="/"><%= image_tag"626_xm_f.png", size: "50x50" %></a>
+      <h4>Nagano Cake</h4>
+        <% if admin_signed_in? %>
+          <div class="mr-auto">
+            <%= link_to ' sweets', admin_items_path,class: 'nav-link text-light' %>
+            <%= link_to '会員一覧',admin_customers_path,class: 'nav-link text-light' %>
+            <%= link_to '注文履歴一覧',admin_root_path,class: 'nav-link text-light'%>
+            <%= link_to 'ジャンル一覧', admin_genres_path, class: 'nav-link text-light' %>
+            <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %><
+          </div>
+        </div>
+      <div class="row">
       </div>
-  </nav>
-  <% elsif customer_signed_in? %>
-  <%#= "ようこそ、 " + customer.last_name + "さん!" %>
-  <%= link_to 'マイページ', customers_my_page_path %>
-  <%= link_to '商品一覧', items_path %>
-  <%= link_to 'カート', cart_items_path %>
-  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-  <%= link_to "注文", new_order_path %>
-  <% else %>
-  <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %></li>
-  <%= link_to 'about', about_path %>
-  <%= link_to '商品一覧', items_path %>
-  <%= link_to '新規登録', new_customer_registration_path %>
-  <%= link_to 'ログイン', new_customer_session_path %>
-  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-  <% end %>
-</div>
+    </nav>
+    <nav class="bg-warning">
+      <div class="container">
+        <div class="navbar-nav mr-auto">
+            <% elsif customer_signed_in? %>
+            <%#= "ようこそ、 " + customer.last_name + "さん!" %>
+            <%= link_to ' My Page', customers_my_page_path, class: 'text-white' %>
+            <%= link_to ' Sweets', items_path, class: 'text-white' %>
+            <%= link_to ' Cart', cart_items_path, class: 'text-white' %>
+            <%= link_to " Log Out", destroy_customer_session_path, method: :delete, class: 'text-white' %>
+            <%= link_to " Order", new_order_path, class: 'text-white' %>
+            <% else %>
+            <%= link_to ' Log Out', destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %>
+            <%= link_to ' About', about_path, class: 'text-white' %>
+            <%= link_to ' Sweets', items_path , class: 'text-white' %>
+            <%= link_to ' Sign Up', new_customer_registration_path, class: 'text-white' %>
+            <%= link_to ' Log In', new_customer_session_path, class: 'text-white' %>
+            <%= link_to " Log Out", destroy_customer_session_path, method: :delete, class: 'text-white' %>
+            <% end %>
+          </div>
+        </div>
+      <div class="row">
+      </div>
+    </nav>
+</header>
