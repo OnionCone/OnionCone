@@ -7,6 +7,7 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @customer = current_customer
+    @sub_total_product_price = 0
     @shipping_cost = 800
     @cart_items = CartItem.where(customer_id: current_customer.id)
     @order = Order.new(order_params)
@@ -33,12 +34,22 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_confirm_params)
-    binding.pry
+    @order.customer_id = current_customer.id
     @order.save
+    current_customer.cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new
+      @order_detail.order_id = @order.id
+      @order_detail.item_id = cart_item.item.id
+      @order_detail.amount = cart_item.amount
+      @order_detail.price = (cart_item.item.price * 1.1).floor
+      @order_detail.save
+    end
+    #cart_item.destroy_all
     redirect_to complete_path
   end
 
   def index
+    @order = current_customer.orders
   end
 
   def show
@@ -54,8 +65,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def order_confirm_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:customer_id, :postal_code, :address, :name,
+                                  :shipping_cost, :total_payment, :payment_method, :status)
   end
-
-
 end

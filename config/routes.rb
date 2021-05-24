@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe', to: 'customers#unsubscribe'
     patch 'customers/withdrawal', to: 'customers#withdrawal', as: 'withdrawal'
     resources :customers, only: [:edit, :update]
-    resources :orders, only: [:new, :create]
+    resources :orders
     post '/orders/confirm', to: 'orders#confirm', as: 'confirm'
     get '/orders/complete', to: 'orders#complete', as: 'complete'
     resources :items, only: [:index, :show]
