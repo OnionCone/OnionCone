@@ -1,66 +1,75 @@
-<table class='table table-hover table-inverse'>
-  <thead>
-    <tr>
-      <td><h1>注文履歴詳細</h1></td>
-    </tr>
-  </thead>
-</table>
-<div>
-  <thead>
-    <tr>
-      <h1>注文情報</h1>
-      <th>注文日</th>
-      <th>配送先</th>
-      <th>注文商品</th>
-      <th>支払金額</th>
-      <th>ステータス</th>
-      <th></th>
-    </tr>
-  </thead>
-  <% @order.each do |order| %>
-  <tr>
-    <td><%= order.created_at %></td>
-    <td><%= order.postal_code %><%= order.address %><%= order.name %></td>
-    <td><%= order.payment_method %></td>
-    <td><%= order.status %></td>
-  </tr>
-<% end %>
-</div>
-<div
-  <thead>
-    <tr>
-      <h1>請求情報</h1>
-      <th>商品合計</th>
-      <th>配送料</th>
-      <th>ご請求額</th>
-    </tr>
-  </thead>
-  <% @order.each do |order| %>
-  <tr>
-    <td><%= order.order_detail.price %>（税抜合計）</td>
-        <!--よくわからん-->
-    <td><%= order.shipping_cost %></td>
-    <td><%= order.total_payment %></td>
-  </tr>
-<% end %>
-</div>
-<div>
-  <thead>
-    <tr>
-      <h1>注文内容</h1>
-      <th>商品</th>
-      <th>単価（税込）</th>
-      <th>個数</th>
-      <th>小計</th>
-    </tr>
-  </thead>
-  <% @order.each do |order| %>
-  <tr>
-    <td><%= order.order_detail.name %></td>
-    <!--よくわからん-->
-    <td><%= order.order_detail.price %></td>
-    <td><%= order.order_detail.amount %></td>
-    <td><%= order.order_detail.price %>*<%= order.order_detail.amount %></td>
-  </tr>
-<% end %>
+<h1>注文履歴詳細</h1>
+<div class="container">
+  <div class="row">
+    <table class='table table-hover table-inverse'>
+        <div>
+          <thead>
+            <tr>
+              <h1>注文情報</h1>
+              <th>注文日</th>
+              <th>配送先</th>
+              <th>支払方法</th>
+              <th>ステータス</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+              <td><%= @order.postal_code %><%= @order.address %><%= @order.name %></td>
+              <td><%= @order.payment_method %></td>
+              <td><%= @order.status %></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class='table table-hover table-inverse'>
+      </div>
+      <div>
+        <thead>
+          <tr>
+            <h1>請求情報</h1>
+            <th>商品合計</th>
+            <th>配送料</th>
+            <th>ご請求額</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <% @order.order_details.each do |order_detail| %>
+            <% @total += order_detail.price * order_detail.amount %>
+            <% end %>
+            <%= @total %>
+          </td>
+          <td><%= @order.shipping_cost %></td>
+          <td><%= @order.total_payment %></td>
+        </tr>
+      </div>
+      </tbody>
+      </table>
+    <table class='table table-hover table-inverse'>
+      <div>
+        <thead>
+          <tr>
+            <h1>注文内容</h1>
+            <th>商品</th>
+            <th>単価（税込）</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @order.order_details.each do |order_detail| %>
+        <!--Nから1を取得するとき-->
+        <tr>
+          <td><%= order_detail.item.name %></td>
+          <td><%= order_detail.price %></td>
+          <td><%= order_detail.amount %></td>
+          <td><%= order_detail.price * order_detail.amount %></td>
+        </tr>
+        <% end %>
+        </tbody>
+      </div>
+    </table>
+  </div>
 </div>

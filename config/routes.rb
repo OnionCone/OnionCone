@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :update, :destroy, :create, :edit]
     get '/orders/complete', to: 'orders#complete', as: 'complete'
 
+
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # namespace :admin do

@@ -46,6 +46,7 @@ class Public::OrdersController < ApplicationController
     end
     #cart_item.destroy_all
     redirect_to complete_path
+
   end
 
   def index
@@ -53,6 +54,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @total = 0
+    @order = Order.find(params[:id])
   end
 
   private
@@ -68,5 +71,6 @@ class Public::OrdersController < ApplicationController
     params.require(:order).permit(:customer_id, :postal_code, :address, :name,
                                   :shipping_cost, :total_payment, :payment_method, :status)
   end
+
 
 end
