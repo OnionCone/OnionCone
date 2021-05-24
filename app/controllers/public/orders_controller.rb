@@ -44,7 +44,7 @@ class Public::OrdersController < ApplicationController
       @order_detail.price = (cart_item.item.price * 1.1).floor
       @order_detail.save
     end
-    #cart_item.destroy_all
+    #cart_items.destroy_all
     redirect_to complete_path
   end
 
