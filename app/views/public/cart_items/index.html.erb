@@ -13,7 +13,6 @@
         </tr>
       </thead>
       <tbody>
-        <%= @cart_item.subtotal %>
         <% @cart_items.each do |cart_item| %>
           <tr>
             <td><%= attachment_image_tag cart_item.item, :image, format: 'jpeg', size: "100x100" %><%= cart_item.item.name %></td>

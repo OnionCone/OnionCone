@@ -19,16 +19,7 @@
           <% end %>
         </td>
         <td><%= item.price %></td>
-        <td><% if item.genre_id == 0 %>
-              <%= 'ケーキ' %>
-            <% elsif item.genre_id == 1 %>
-              <%= 'プリン' %>
-            <% elsif item.genre_id == 2 %>
-              <%= '焼き菓子' %>
-            <% elsif item.genre_id == 3 %>
-              <%= 'キャンディ' %>
-            <% end %>
-        </td>
+        <td><%= item.genre.name %></td>
         <td>
           <% if  item.is_deleted %>
             <%= '販売中' %>

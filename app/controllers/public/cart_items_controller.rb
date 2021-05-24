@@ -27,7 +27,7 @@ class Public::CartItemsController < ApplicationController
     cart_item.update(cart_item_params)
     redirect_to cart_items_path
   end
-  
+
 
   private
   def cart_item_params

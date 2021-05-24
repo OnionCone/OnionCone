@@ -1,10 +1,5 @@
+<h1>注文履歴一覧</h1>
 <table class='table table-hover table-inverse'>
-  <thead>
-    <tr>
-      <td><h1>注文履歴一覧</h1></td>
-    </tr>
-  </thead>
-  </table>
   <thead>
     <tr>
       <th>注文日</th>
@@ -15,14 +10,20 @@
       <th></th>
     </tr>
   </thead>
-<% @order.each do |order| %>
-  <tr>
-    <td><%= order.created_at %></td>
-    <td><%= order.postal_code %><%= order.address %><%= order.name %></td>
-    <td><%= order.order_detail.name %></td>
-    <!--よくわからん-->
-    <td><%= order.total_payment %>円</td>
-    <td><%= order.status %></td>
-    <td><%= link_to '表示する', order_path(order)%></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @order.each do |order| %>
+    <tr>
+      <td><%= order.created_at %></td>
+      <td><%= order.postal_code %><%= order.address %><%= order.name %></td>
+      <td>
+        <% order.order_details.each do |order_detail| %>
+        <P><%= order_detail.item.name %></P>
+        <% end %>
+      </td>
+      <!--よくわからん-->
+      <td><%= order.total_payment %>円</td>
+      <td><%= order.status %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
