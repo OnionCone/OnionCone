@@ -1,66 +1,77 @@
-<h1>注文履歴詳細</h1>
+  <div class="row">
+    <div class="col-12">
+      <h1>注文履歴詳細</h1>
 
-<table>
-  <% @order.each do |o| %>
-  <tr>
-    <td>購入者</td>
-    <td><%= o.full_name %></td>
-  </tr>
-  <tr>
-    <td>注文日</td>
-    <td><%= o.created_at %></td>
-  </tr>
-  <tr>
-    <td>配送先</td>
-    <td><%= o.address %></td>
-  </tr>
-  <tr>
-    <td>支払い方法</td>
-    <td><%= o.payment_method %></td>
-  </tr>
-  <tr>
-    <td>ステータス</td>
-    <td><%= o.status %></td>
-    <td><%= link_to "更新",  %></td>
-  </tr>
-</table>
+      <table class='table table-hover table-inverse'>
+        <%# @order.each do |o| %>
+        <tr>
+          <td>購入者</td>
+          <td><%= @order.name %></td>
+        </tr>
+        <tr>
+          <td>注文日</td>
+          <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <td>配送先</td>
+          <td><%= @order.address %></td>
+        </tr>
+        <tr>
+          <td>支払い方法</td>
+          <td><%= @order.payment_method %></td>
+        </tr>
+        <tr>
+          <td>ステータス</td>
+          <td><%= @order.status %></td>
+        </tr>
+        <%# end %>
+      </table>
 
-<table>
-  <tr>
-    <th>商品名</th>
-    <th>単価(税込み)</th>
-    <th>数量</th>
-    <th>小計</th>
-    <th>制作ステータス</th>
-  </tr>
-  <tr>
-    <td><%= o.name %></td>
-    <td><%= @detail.price %></td>
-    <!--orderモデルに定義↓-->
-    <td><%= @detail.amount%></td>
-    <td><%= o.subtotal %></td>
-    <%= @total += o.subtotal %>
-    <%= form_with model:o, url: admin_order_detail_path(@detail), method: :patch do |f| %>
-    <td>
-    	<%= f.select :making_status, [ ["着手不可", 0], ["制作待ち", 1], ["製作中", 2], ["制作完了", 3] ] %>
-    	<%= f.submit '更新' %>
-    </td>
-    <% end %>
-  </tr>
-</table>
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込み)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>制作ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% @order.order_details.each do |detail|%>
+            <td><%= detail.item.name %></td>
+            <td><%= detail.price %></td>
+            <!--orderモデルに定義↓-->
+            <td><%= detail.amount%></td>
+            <td><%= detail.price * detail. amount %></td>
+            <%= @total += detail.price * detail.amount %>
+            <%= form_with model:@order, url: admin_order_detail_path(detail), method: :patch do |f| %>
+            <td>
+              <%= f.collection_select(:making_status, Order.all, :status, :status, {prompt: "==選択してください=="} ) %>
+            	<%#= f.select :making_status, [ ["着手不可", 0], ["制作待ち", 1], ["製作中", 2], ["制作完了", 3] ] %>
+            	<%= f.submit '更新' %>
+            </td>
+            <% end %>
+          </tr>
+            <% end %>
+        </tbody>
+      </table>
 
-<table>
-  <tr>
-    <td>商品合計</td>
-    <td><%= @total %></td>
-  </tr>
-  <tr>
-    <td>送料</td>
-    <td><%= @order.shipping_cost %></td>
-    <!--800べたうちにする？-->
-  </tr>
-  <tr>
-    <td>請求金額合計</td>
-    <td><%= @total + 800 %></td>
-  </tr>
-</table>
+      <table>
+        <tr>
+          <td>商品合計</td>
+          <td><%= @total %></td>
+        </tr>
+        <tr>
+          <td>送料</td>
+          <td><%= @order.shipping_cost %></td>
+          <!--800べたうちにする？-->
+        </tr>
+        <tr>
+          <td>請求金額合計</td>
+          <td><%= @total + @order.shipping_cost %></td>
+        </tr>
+      </table>
+  </div>
+</div>
