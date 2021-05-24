@@ -44,7 +44,7 @@ class Public::OrdersController < ApplicationController
       @order_detail.price = (cart_item.item.price * 1.1).floor
       @order_detail.save
     end
-    #cart_items.destroy_all
+    #cart_item.destroy_all
     redirect_to complete_path
   end
 
@@ -53,6 +53,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @total = 0
+    @order = Order.find(params[:id])
   end
 
   private
@@ -68,5 +70,5 @@ class Public::OrdersController < ApplicationController
     params.require(:order).permit(:customer_id, :postal_code, :address, :name,
                                   :shipping_cost, :total_payment, :payment_method, :status)
   end
-
 end
+

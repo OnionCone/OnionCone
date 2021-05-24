@@ -39,7 +39,6 @@
 <%= @order.postal_code %>
 <%= @order.address %>
 <%= @order.name %>
-
 <%= form_with model: @order, local:true do |f| %>
 <%= f.hidden_field :customer_id, :value => @order.customer_id  %>
 <%= f.hidden_field :postal_code, :value => @order.postal_code %>
