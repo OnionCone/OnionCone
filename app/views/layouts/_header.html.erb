@@ -1,41 +1,81 @@
 <header>
-  <nav class="navbar navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="/"><%= image_tag"626_xm_f.png", size: "50x50" %></a>
-      <h4>Nagano Cake</h4>
-        <% if admin_signed_in? %>
-          <div class="mr-auto">
-            <%= link_to ' sweets', admin_items_path,class: 'nav-link text-light' %>
-            <%= link_to '会員一覧',admin_customers_path,class: 'nav-link text-light' %>
-            <%= link_to '注文履歴一覧',admin_root_path,class: 'nav-link text-light'%>
-            <%= link_to 'ジャンル一覧', admin_genres_path, class: 'nav-link text-light' %>
-            <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %><
-          </div>
-        </div>
-      <div class="row">
-      </div>
-    </nav>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+  <!-- <a class="navbar-brand" href="#">Always expand</a> -->
+  <div id = "header-logo">
+    <%= link_to image_tag("/OnionCone/app/assets/images/Logo.png"), root_path %>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <% if admin_signed_in? %>
+  <div class="collapse navbar-collapse" id="navbarsExample02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to ' sweets', admin_items_path,class: 'nav-link text-light' %>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+        <%= link_to '会員一覧',admin_customers_path,class: 'nav-link text-light' %>
+      </li>
+            <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+        <%= link_to '注文履歴一覧',admin_root_path,class: 'nav-link text-light'%>
+      </li>
+            <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+        <%= link_to 'ジャンル一覧', admin_genres_path, class: 'nav-link text-light' %>
+      </li>
+            <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+        <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
     <nav class="bg-warning">
       <div class="container">
         <div class="navbar-nav mr-auto">
             <% elsif customer_signed_in? %>
-            <%#= "ようこそ、 " + customer.last_name + "さん!" %>
-            <%= link_to ' My Page', customers_my_page_path, class: 'text-white' %>
-            <%= link_to ' Sweets', items_path, class: 'text-white' %>
-            <%= link_to ' Cart', cart_items_path, class: 'text-white' %>
-            <%= link_to " Log Out", destroy_customer_session_path, method: :delete, class: 'text-white' %>
-            <%= link_to " Order", new_order_path, class: 'text-white' %>
+              <div class="collapse navbar-collapse" id="navbarsExample02">
+                <ul class="navbar-nav mr-auto">
+                  <%#= "ようこそ、 " + customer.last_name + "さん!" %>
+                  <li class="nav-item">
+                    <%= link_to ' My Page', customers_my_page_path, class: 'text-white' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to ' Sweets', items_path, class: 'text-white' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to ' Cart', cart_items_path, class: 'text-white' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to " Log Out", destroy_customer_session_path, method: :delete, class: 'text-white' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to " Order", new_order_path, class: 'text-white' %>
+                  </li>
+                </ul>
+                </div>
+              </div>
             <% else %>
-            <%= link_to ' Log Out', destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %>
-            <%= link_to ' About', about_path, class: 'text-white' %>
-            <%= link_to ' Sweets', items_path , class: 'text-white' %>
-            <%= link_to ' Sign Up', new_customer_registration_path, class: 'text-white' %>
-            <%= link_to ' Log In', new_customer_session_path, class: 'text-white' %>
-            <%= link_to " Log Out", destroy_customer_session_path, method: :delete, class: 'text-white' %>
+              <div class="collapse navbar-collapse" id="navbarsExample02">
+              <%= link_to ' Log Out', destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %>
+              <%= link_to ' About', about_path, class: 'text-white' %>
+              <%= link_to ' Sweets', items_path , class: 'text-white' %>
+              <%= link_to ' Sign Up', new_customer_registration_path, class: 'text-white' %>
+              <%= link_to ' Log In', new_customer_session_path, class: 'text-white' %>
+              <%= link_to " Log Out", destroy_customer_session_path, method: :delete, class: 'text-white' %>
+            </end>
             <% end %>
           </div>
         </div>
       <div class="row">
       </div>
+        <form class="form-inline my-2 my-md-0">
+          <input class="form-control" type="text" placeholder="検索">
+        </form>
     </nav>
 </header>
