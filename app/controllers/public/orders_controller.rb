@@ -3,6 +3,10 @@ class Public::OrdersController < ApplicationController
     @customer = current_customer
     @order = Order.new
     @addresses = Address.where(customer_id: current_customer.id)
+    @cart_items = CartItem.where(customer_id: current_customer.id)
+    if @cart_items.empty?
+      redirect_to cart_items_path
+    end
   end
 
   def confirm
@@ -44,7 +48,7 @@ class Public::OrdersController < ApplicationController
       @order_detail.price = (cart_item.item.price * 1.1).floor
       @order_detail.save
     end
-    #cart_item.destroy_all
+    current_customer.cart_items.destroy_all
     redirect_to complete_path
   end
 
