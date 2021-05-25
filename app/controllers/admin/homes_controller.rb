@@ -1,11 +1,6 @@
 class Admin::HomesController < ApplicationController
   def index
-    @orders = Order.all
-    @order = Order.new
-  end
-
-  def index
-    @orders = Order.all
+    @orders = Order.all.page(params[:page]).reverse_order
     @order = Order.new
   end
 end
