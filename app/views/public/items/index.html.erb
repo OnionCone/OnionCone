@@ -1,14 +1,7 @@
 <div class="container">
   <div class="row">
-    <table class='table table-hover table-inverse'>
-      <thead>
-        <tr>
-          <td><h1>商品一覧</h1></td>
-          <td><p>(全<%= @item.count %>件)</p></td>
-        </tr>
-      </thead>
-    </table>
-
+    <h1>商品一覧</h1>
+    <p>(全<%= @item.count %>件)</p>
     <div class="list-wrap">
       <% @items.each do |item| %>
       <div class="list-box">
@@ -22,7 +15,6 @@
       </div>
       <% end %>
     </div>
-
   </div>
   <%= paginate @items %>
 <!--config/locales/kaminari_ja.yml-->

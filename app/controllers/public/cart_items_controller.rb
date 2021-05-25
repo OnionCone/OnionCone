@@ -1,4 +1,5 @@
 class Public::CartItemsController < ApplicationController
+  before_action :authenticate_customer!,except: [:index]
   def index
     @cart_items = current_customer.cart_items
     @total = 0
@@ -18,16 +19,21 @@ class Public::CartItemsController < ApplicationController
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    @cart_item.save
-    redirect_to cart_items_path
+    if @cart_item.save
+        redirect_to cart_items_path
+    else
+      redirect_to  controller: :items, action: :show, id:  1
+    end
   end
 
   def update
     cart_item = CartItem.find(params[:id])
-    cart_item.update(cart_item_params)
-    redirect_to cart_items_path
+    if cart_item.update(cart_item_params)
+      redirect_to cart_items_path
+    else
+      redirect_to cart_items_path
+    end
   end
-
 
   private
   def cart_item_params

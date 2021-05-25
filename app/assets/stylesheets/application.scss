@@ -22,10 +22,20 @@ header {
 }
 
 body {
-  background-color: antiquewhite;
+  // background-color: antiquewhite;
 }
 
 footer {
   font-family: 'Nothing You Could Do', cursive;
   background-color: forestgreen;
+}
+
+.footer-text {
+  color: #fff;
+}
+th,td{
+  border:solid 1px #aaaaaa;
+}
+thead{
+background-color: #C0C0C0;
 }
