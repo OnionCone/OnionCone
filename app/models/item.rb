@@ -9,4 +9,5 @@ class Item < ApplicationRecord
   def price_tax
     self.price * 1.1
   end
+
 end

@@ -1,12 +1,6 @@
 <div class="container">
+  <h1>配送先編集</h1>
   <div class="row">
-    <table class='table table-hover table-inverse'>
-      <thead>
-        <tr>
-          <td><h1>配送先編集</h1></td>
-        </tr>
-      </thead>
-    </table>
     <%= form_with model: @addresses,:url => {:action => :update}, local:true do |f| %>
       <div class="field">
         <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>

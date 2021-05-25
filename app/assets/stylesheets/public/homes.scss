@@ -1,3 +1,8 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.main-visual {
+  width: 100%; /* 横幅いっぱい */
+  height: 200px; /* 高さ300px */
+  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */}
+

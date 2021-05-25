@@ -13,6 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6b6b;
+  }
+
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
 
@@ -22,10 +30,26 @@ header {
 }
 
 body {
-  background-color: antiquewhite;
+  // background-color: antiquewhite;
 }
 
 footer {
   font-family: 'Nothing You Could Do', cursive;
   background-color: forestgreen;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+  width: 100%;
+  margin-top: 15px;
+}
+.footer-text {
+  color: #fff;
+}
+th,td{
+  border:solid 1px #aaaaaa;
+}
+thead{
+background-color: #C0C0C0;
+}
+.nav-item {
+    margin-right: 15px;
 }
