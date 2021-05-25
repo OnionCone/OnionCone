@@ -1,12 +1,6 @@
 <div class="container">
+  <h1>配送先登録/一覧</h1>
   <div class="row">
-    <table class='table table-hover table-inverse'>
-      <thead>
-        <tr>
-          <td><h1>配送先登録/一覧</h1></td>
-        </tr>
-      </thead>
-    </table>
     <%= form_with model: @address,:url => {:action => :create}, local:true do |f| %>
     <!--,:url => {:action => :create}で/public/addressesのcreateへ-->
       <div class="field">
@@ -24,9 +18,7 @@
         <%= f.text_field :name %>
         <%= f.submit "新規登録", class: "btn btn-sm btn-success" %>
       </div>
-
     <% end %>
-
     <table class='table'>
       <thead>
         <tr>

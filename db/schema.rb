@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_05_25_021653) do
 
+
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
     t.string "name"

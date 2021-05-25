@@ -1,4 +1,6 @@
-<h1>注文情報入力</h1>
+<div class="container">
+  <h1>注文情報入力</h1>
+  <div class="row">
 <%= form_with model: @order, url: confirm_path, local:true do |f| %>
 
   <p>支払い方法</p>
@@ -26,8 +28,10 @@
     <%= f.label :address, "住所" %>
     <%= f.text_field :address %></br>
     <%= f.label :name, "宛名" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name %></br>
 
-    <%= f.submit "確認画面へ進む" %>
+    <%= f.submit "確認画面へ進む",class: 'btn btn-sm btn-primary' %>
   </div>
 <% end %>
+  </div>
+</div>
