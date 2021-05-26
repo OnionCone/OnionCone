@@ -2,6 +2,7 @@ class Public::OrdersController < ApplicationController
   def new
     @customer = current_customer
     @order = Order.new
+    @address = Address.new
     @addresses = Address.where(customer_id: current_customer.id)
     @cart_items = CartItem.where(customer_id: current_customer.id)
     if @cart_items.empty?
@@ -27,9 +28,18 @@ class Public::OrdersController < ApplicationController
       @order.name = @address_order.name
       @order.customer_id = current_customer.id
     elsif params[:order][:address_option] == "2"
-      @order.postal_code = params[:order][:postal_code]
-      @order.address = params[:order][:address]
-      @order.name = params[:order][:name]
+      @address = Address.new()
+      @address.customer_id = current_customer.id
+      @address.postal_code = params[:order][:postal_code]
+      @address.address = params[:order][:address]
+      @address.name = params[:order][:name]
+      if @address.save
+        @order.postal_code = @address.postal_code
+        @order.address = @address.address
+        @order.name = @address.name
+      else
+        render 'new'
+      end
     end
   end
 
