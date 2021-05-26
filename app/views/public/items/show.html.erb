@@ -7,12 +7,14 @@
       <div class="col-8">
         <h3><%= @item.name %></h3>
         <p><%= @item.introduction %></p>
-        <p>￥<%= @item.price %>（税込）</p>
+        <p><%= number_to_currency((@item.price * 1.1).floor, unit: "￥", format: "%u%n", precision: 0) %>（税込）</p>
         <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
           <%= f.hidden_field :item_id, :value => @item.id %>
           <!--商品の情報（@item）を保存できる-->
+          <% if customer_signed_in? %>
           <%= f.select :amount, [["1", 1], ["2", 2], ["3", 3], ["4", 4]] , include_blank: "個数選択" %>
           <%= f.submit 'カートに入れる',class: 'btn btn-sm btn-success' %>
+          <% end %>
         <% end %>
       </div>
     </div>

@@ -23,6 +23,8 @@
 
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 header {
   font-family: 'Nothing You Could Do', cursive;
@@ -54,3 +56,4 @@ background-color: #C0C0C0;
 .nav-item {
     margin-right: 15px;
 }
+

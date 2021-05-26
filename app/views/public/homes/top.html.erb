@@ -24,7 +24,7 @@
             <td><%= attachment_image_tag item, :image, format: 'jpeg', size: "200x200", fallback: "no-image-icon.jpg" %></td>
           <div class="list-comment">
             <p><%= item.name %></p>
-            <p>￥<%= item.price %></p>
+            <p><%= number_to_currency(item.price, unit: "￥", format: "%u%n" ) %></p>
           </div>
         </div>
       </tr>
