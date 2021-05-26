@@ -26,7 +26,7 @@ class Customer < ApplicationRecord
     self.last_name_kana + " " + self.first_name_kana
   end
 
-  enum is_deleted: {Invalid: true, Valid: false}
+  # enum is_deleted: {Invalid: true, Valid: false}
 
   #def active_for_authentication?
    #super && (self.is_deleted == "Valid")
