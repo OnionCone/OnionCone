@@ -1,21 +1,27 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-    <div style="text-align:center">
-    <p>ようこそ、ながのCAKEへ！<br>
-    このサイトは、ケーキ販売のECサイトになります。<br>
-    会員でない方も商品の閲覧はできますが、<br>
-    購入には会員登録が必要になります。
-    </p>
-    </div>
+      <div style="text-align:center">
+        <div class="main-visual">
+          <div class="main-visual-content">
+            <p class="main-visual-text">
+            ようこそ、ながのCAKEへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <h1>新着商品</h1>
   <div class="row">
     <thead>
     <% @items.each do |item| %>
       <tr>
       <div class="list-box">
-            <td><%= attachment_image_tag(item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></td>
+            <td><%= attachment_image_tag item, :image, format: 'jpeg', size: "200x200", fallback: "no-image-icon.jpg" %></td>
           <div class="list-comment">
             <p><%= item.name %></p>
             <p>￥<%= item.price %></p>
@@ -25,5 +31,7 @@
       <% end %>
       </thead>
   </div>
+  <div style="text-align:right">
+  <%= link_to '全ての商品を見る＞', items_path %>
+  </div>
 </div>
-

@@ -27,6 +27,7 @@
 header {
   font-family: 'Nothing You Could Do', cursive;
   background-color: forestgreen;
+  margin-bottom: 40px;
 }
 
 body {
@@ -36,7 +37,7 @@ body {
 footer {
   font-family: 'Nothing You Could Do', cursive;
   background-color: forestgreen;
-  position: absolute;/*←絶対位置*/
+  // position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
   width: 100%;
   margin-top: 15px;
@@ -44,9 +45,9 @@ footer {
 .footer-text {
   color: #fff;
 }
-th,td{
-  border:solid 1px #aaaaaa;
-}
+// th,td{
+//   border:solid 1px #aaaaaa;
+//}
 thead{
 background-color: #C0C0C0;
 }
