@@ -30,9 +30,14 @@ header {
   font-family: 'Nothing You Could Do', cursive;
   background-color: forestgreen;
   margin-bottom: 40px;
+  white-space: nowrap;
 }
 
 body {
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  padding-bottom: 120px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
   // background-color: antiquewhite;
 }
 
