@@ -18,18 +18,18 @@
   <h1>新着商品</h1>
   <div class="row">
     <thead>
-    <% @items.each do |item| %>
-      <tr>
-      <div class="list-box">
+      <% @items.each do |item| %>
+        <tr>
+          <div class="list-box">
             <td><%= attachment_image_tag item, :image, format: 'jpeg', size: "200x200", fallback: "no-image-icon.jpg" %></td>
-          <div class="list-comment">
-            <p><%= item.name %></p>
-            <p><%= number_to_currency(item.price, unit: "￥", format: "%u%n" ) %></p>
+            <div class="list-comment">
+              <p><%= item.name %></p>
+              <p><%= number_to_currency(item.price, unit: "￥", format: "%u%n" ) %></p>
+            </div>
           </div>
-        </div>
-      </tr>
+        </tr>
       <% end %>
-      </thead>
+    </thead>
   </div>
   <div style="text-align:right">
   <%= link_to '全ての商品を見る＞', items_path %>

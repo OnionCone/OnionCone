@@ -48,7 +48,7 @@
             <!--orderモデルに定義↓-->
             <td><%= detail.amount%></td>
             <td><%= detail.price * detail. amount %></td>
-            <%= @total += detail.price * detail.amount %>
+            <% @total += detail.price * detail.amount %>
             <%= form_with model:detail, url: admin_order_detail_path(detail.id), method: :patch, local: true do |f| %>
             <td>
               <%#= f.collection_select(:making_status, detail, :id, :making_status, {prompt: "==選択してください=="} ) %>

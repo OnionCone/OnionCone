@@ -28,7 +28,6 @@ class Customer < ApplicationRecord
 
   # enum is_deleted: {Invalid: true, Valid: false}
 
-  #退会後ログイン制限
   #def active_for_authentication?
    #super && (self.is_deleted == "Valid")
   #end
