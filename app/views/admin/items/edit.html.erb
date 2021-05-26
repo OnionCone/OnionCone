@@ -1,25 +1,26 @@
 <div class="container">
   <div class="row">
+    <h1>商品編集</h1>
     <div class="col-lg-12">
-      <h1>商品編集</h1>
     </div>
   </div>
   <div class="item-new">
     <%= form_with model:@item, url:admin_item_path(@item), local:true do |f| %>
-    <p><%= f.label :image, '商品画像' %>
-    <%= f.attachment_field :image %></p>
-    <p><%= f.label :name, '商品名' %>
-    <%= f.text_field :name %></p>
-    <p><%= f.label :introduction, '商品説明' %>
-    <%= f.text_area :introduction %></p>
-    <p><%= f.label :genre_id,'ジャンル' %>
-    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "==選択してください=="} ) %></p>
-    <p><%= f.label :price,'税抜き価格' %>
-    <%= f.text_field :price %> 円</p>
-    <p><%= f.label :is_deleted,'販売ステータス' %>
-    <%= f.radio_button :is_deleted, "0" %>販売中 <%= f.radio_button :is_deleted, "1" %>販売停止中</p>
-    <%= f.submit '編集する', class: "btn btn-secondary" %>
+    <ul>
+      <li><p><%= f.label :image, '商品画像' %>
+      <%= f.attachment_field :image %></p></li>
+      <li><p><%= f.label :name, '商品名' %>
+      <%= f.text_field :name %></p></li>
+      <li><p><%= f.label :introduction, '商品説明' %>
+      <%= f.text_area :introduction %></p></li>
+      <li><p><%= f.label :genre_id,'ジャンル' %>
+      <%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "==選択してください=="} ) %></p></li>
+      <li><p><%= f.label :price,'税抜き価格' %>
+      <%= f.text_field :price %> 円</p></li>
+      <li><p><%= f.label :is_deleted,'販売ステータス' %>
+      <%= f.radio_button :is_deleted, "0" %>販売中 <%= f.radio_button :is_deleted, "1" %>販売停止中</p></li>
+      <li><p><%= f.submit '編集する', class: "btn btn-secondary" %></p></li>
     <% end %>
-    </div>
+    </ul>
   </div>
 </div>
