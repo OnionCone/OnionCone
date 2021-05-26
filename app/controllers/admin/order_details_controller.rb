@@ -5,7 +5,8 @@ class Admin::OrderDetailsController < ApplicationController
     temp = order_params
     temp[:making_status] = temp[:making_status].to_i
     order.update(temp)
-    redirect_to admin_root_path
+    num = order.order_id
+    redirect_to admin_order_path(num)
   end
 
   private
@@ -14,3 +15,4 @@ class Admin::OrderDetailsController < ApplicationController
   end
 
 end
+

@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   post 'admins/sign_in' => 'admins/sessions#create', as: :admin_session
   delete 'logout' => 'admins/sessions#destroy', as: :destroy_admin_session
 end
-
-   #devise_for :admins, controllers: {
+  #devise_for :admins, controllers: {
   #sessions:      'admins/sessions',
   #passwords:     'admins/passwords',
   #registrations: 'admins/registrations'
