@@ -28,14 +28,17 @@
     <td>メールアドレス</td>
     <td><%= @customer.email %></td>
   </tr>
+  <tr>
+    <td>会員ステータス</td>
+    <td><% if @customer.is_deleted == true %>
+        <p>退会</p>
+      <% else %>
+        <p>有効</p>
+      <% end %>
+    </td>
+  </tr>
 </table>
-  <!--ステータスおかしい-->
-<!--  <tr>-->
-<!--    <td>会員ステータス</td>-->
-<!--    <td><= @customer.is_deleted %></td>-->
-<!--  </tr>-->
-<!--</table>-->
 
 <div>
-  <%= link_to "編集する", edit_admin_customer_path %>   <%= link_to "注文履歴一覧", root_path %>
+  <%= link_to "編集する", edit_admin_customer_path %>   <%= link_to "注文履歴一覧", admin_root_path %>
 </div>
