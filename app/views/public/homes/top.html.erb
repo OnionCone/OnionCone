@@ -15,15 +15,16 @@
     <% @items.each do |item| %>
       <tr>
       <div class="list-box">
-            <td><%= attachment_image_tag(item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></td>
+            <td><%= attachment_image_tag(item, :image, size: "200x200", fallback: "no-image-icon.jpg") %></td>
           <div class="list-comment">
             <p><%= item.name %></p>
-            <p>￥<%= item.price %></p>
+            <p><%= number_to_currency(item.price, unit: "￥", format: "%u%n" ) %></p>
           </div>
         </div>
       </tr>
       <% end %>
       </thead>
   </div>
+  <div><%= link_to "全ての商品を見る", items_path %></div>
 </div>
 

@@ -15,7 +15,9 @@
           <tbody>
             <tr>
               <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
-              <td><%= @order.postal_code %><%= @order.address %><%= @order.name %></td>
+              <td><%= "〒" + @order.postal_code %></br>
+              <%= @order.address %></br>
+              <%= @order.name %></td>
               <td><%= @order.payment_method %></td>
               <td><%= @order.status %></td>
             </tr>
@@ -38,10 +40,10 @@
             <% @order.order_details.each do |order_detail| %>
             <% @total += order_detail.price * order_detail.amount %>
             <% end %>
-            <%= @total %>
+            <%= number_to_currency(@total, unit: "") %>
           </td>
-          <td><%= @order.shipping_cost %></td>
-          <td><%= @order.total_payment %></td>
+          <td><%= number_to_currency(@order.shipping_cost, unit: "") %></td>
+          <td><%= number_to_currency(@order.total_payment, unit: "") %></td>
         </tr>
       </div>
       </tbody>
@@ -62,9 +64,9 @@
         <!--Nから1を取得するとき-->
         <tr>
           <td><%= order_detail.item.name %></td>
-          <td><%= order_detail.price %></td>
+          <td><%= number_to_currency(order_detail.price, unit: "") %></td>
           <td><%= order_detail.amount %></td>
-          <td><%= order_detail.price * order_detail.amount %></td>
+          <td><%= number_to_currency(order_detail.price * order_detail.amount, unit: "") %></td>
         </tr>
         <% end %>
         </tbody>

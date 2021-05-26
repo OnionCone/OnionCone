@@ -1,12 +1,13 @@
-<% if @customer.errors.any? %>
-  <%= @customer.errors.count %>件のエラーが発生しました
-  <% @customer.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
+
 <div class="container">
   <h1>会員情報編集</h1>
   <div class="row">
+  <% if @customer.errors.any? %>
+    <%= @customer.errors.count %>件のエラーが発生しました
+    <% @customer.errors.full_messages.each do |message| %>
+    <%= message %>
+    <% end %>
+  <% end %>
 <%= form_with model: @customer, local:true do |f| %>
   <div class="field">
     <%= f.label :last_name, "(姓)" %><br />

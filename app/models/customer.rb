@@ -9,12 +9,14 @@ class Customer < ApplicationRecord
 
   validates :last_name, :first_name, :last_name_kana, :first_name_kana,
             :postal_code, :address, :telephone_number, presence:true
-  
+
   validates :last_name_kana, :first_name_kana,
                  format: {
                    with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
                    }
-  validates :postal_code, :telephone_number,numericality: { only_integer: true}     
+  validates :postal_code, :telephone_number,numericality: { only_integer: true}
+
+  validates :email, uniqueness: true
 
   def full_name
     self.last_name + " " + self.first_name
