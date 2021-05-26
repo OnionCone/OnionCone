@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
+  <nav class="navbar navbar-expand navbar-dark ">
   <!-- <a class="navbar-brand" href="#">Always expand</a> -->
   <div id = "header-logo">
     <%= link_to image_tag("/OnionCone/app/assets/images/Logo.png"), root_path %>
@@ -55,7 +55,6 @@
                     <%= link_to " Order", new_order_path, class: 'text-white' %>
                   </li>
                   </div>
-
                 </ul>
                   <div class "row">
                     <form class="form-inline my-2 my-md-0">
@@ -65,12 +64,19 @@
               </div>
             <% else %>
               <div class="collapse navbar-collapse" id="navbarsExample02">
-              <%= link_to ' About', about_path, class: 'text-white' %>
-              <%= link_to ' Sweets', items_path , class: 'text-white' %>
-              <%= link_to ' Sign Up', new_customer_registration_path, class: 'text-white' %>
-              <%= link_to ' Log In', new_customer_session_path, class: 'text-white' %>
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item"><%= link_to ' About', about_path, class: 'text-white' %></li>
+                  <li class="nav-item"><%= link_to ' Sweets', items_path , class: 'text-white' %></li>
+                  <li class="nav-item"><%= link_to ' Sign Up', new_customer_registration_path, class: 'text-white' %></li>
+                  <li class="nav-item"><%= link_to ' Log In', new_customer_session_path, class: 'text-white' %></li>
+                </ul>
+              </div>
             <% end %>
-          </div>
         </div>
+      <div class="row">
+      </div>
+        <form class="form-inline my-2 my-md-0">
+          <input class="form-control" type="text" placeholder="検索">
+        </form>
     </nav>
 </header>
