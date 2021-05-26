@@ -30,7 +30,7 @@
             	<%= f.submit '更新' %>
             <% end %></td>
         </tr>
-          <%= form_with model: @order, url: admin_order_path(detail), method: :patch do |f| %>
+          <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
           <td>
           <%#= f.collection_select(:making_status, Order.all, :status, :status, {prompt: "==選択してください=="} ) %>
           <%#= f.select :making_status, [ ["着手不可", 0], ["制作待ち", 1], ["製作中", 2], ["制作完了", 3] ] %>
