@@ -6,7 +6,6 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <ul>
         <%= render "customers/shared/error_messages", resource: resource %>
-
           <li><div style="display:inline-flex">
             <p class="field">
               <%= f.label :last_name, "(姓)" %>
@@ -17,7 +16,6 @@
               <%= f.text_field :first_name, autofocus: true %><br />
             </p>
           </div></li>
-
           <li><div style="display:inline-flex">
             <p class="field">
               <%= f.label :last_name_kana, "(セイ)" %>
@@ -28,45 +26,42 @@
               <%= f.text_field :first_name_kana, autofocus: true %><br />
             </p>
           </div></li>
-
           <li><p class="field">
             <%= f.label :email %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
           </p></li>
-
           <li><p class="field">
-            <%= f.label :postal_code, "郵便番号(ハイフンなし)" %><br />
+            <%= f.label :postal_code, "郵便番号" %>
+            <em>(ハイフンなし)</em><br />
             <%= f.text_field :postal_code, autofocus: true %>
           </p></li>
-
           <li><p class="field">
             <%= f.label :address, "住所" %><br />
             <%= f.text_field :address, autofocus: true %>
           </p></li>
-
           <li><p class="field">
-            <%= f.label :telephone_number, "電話番号(ハイフンなし)" %><br />
+            <%= f.label :telephone_number, "電話番号" %>
+            <em>(ハイフンなし)</em><br />
             <%= f.text_field :telephone_number, autofocus: true %>
           </p></li>
-
           <li><p class="field">
-            <%= f.label :password, "パスワード(6文字以上)" %>
-            <br />
+            <%= f.label :password, "パスワード" %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %>文字以上)</em>
+            <% end %><br />
             <%= f.password_field :password, autocomplete: "new-password" %>
           </p></li>
-
           <li><p class="field">
-            <%= f.label :password_confirmation, "パスワード(確認用)" %><br />
+            <%= f.label :password_confirmation, "パスワード" %>
+            <em>(確認用)</em><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
           </p></li>
-
           <li><p class="actions">
             <%= f.submit "新規登録", class: "btn btn-sm btn-success" %>
           </p></li>
+          <%= render "customers/shared/links" %>
         </ul>
       <% end %>
-
-      <%= render "customers/shared/links" %>
       </div>
       </div>
     </div>
