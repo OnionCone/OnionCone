@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse" id="navbarsExample02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to ' sweets', admin_items_path,class: 'nav-link text-light' %>
+        <%= link_to ' 商品一覧', admin_items_path,class: 'nav-link text-light' %>
       </li>
       <li class="nav-item">
         <!-- <a class="nav-link" href="#">Link</a> -->
@@ -37,8 +37,8 @@
         <div class="navbar-nav mr-auto">
             <% elsif customer_signed_in? %>
               <div class="collapse navbar-collapse" id="navbarsExample02">
-                <ul class="navbar-nav mr-auto">
-                  <%= "ようこそ、 " + customer.last_name + "さん!" %>
+                <%= "ようこそ、 " + customer.last_name + "さん!" %>
+                <ul class="navbar-nav mr-auto text-white" >
                   <li class="nav-item">
                     <%= link_to ' My Page', customers_my_page_path, class: 'text-white' %>
                   </li>
