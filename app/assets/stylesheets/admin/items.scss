@@ -1,0 +1,18 @@
+// Place all the styles related to the admin::items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul li {
+  list-style: none;
+}
+
+label {
+    margin-right: 10px;
+    width:150px;
+    float: left;
+}
+
+ul {
+    width: 500px;
+    margin: 0 auto;
+}

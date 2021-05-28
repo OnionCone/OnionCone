@@ -1,24 +1,72 @@
-# README
+#OnionCone
+*OnionConeは長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのアプリケーションです。
+*[グーグル](https://220b1443ffd0422c8af3514bde2abfc8.vfs.cloud9.us-east-1.amazonaws.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##動画・画像
+*
 
-Things you may want to cover:
+##アプリケーションの詳細説明
+*
 
-* Ruby version
+##使っている言語
+*HTML
+*CSS
+*Ruby
+*JavaScript
 
-* System dependencies
+##フレームワークのバージョン
+*Rails 5.2.5
 
-* Configuration
+##環境構築に必要な手順
+1.AWS Cloud9で新しくIDE(開発環境)を立ち上げる
+2.AWS Cloud9の設定を行う
+3.GitHubとの連携
+4.GitHubの接続に必要な鍵の作成
+5.作成した公開鍵をGitHubに登録
+6.GitHubとの接続確認
+7.Gitの設定を行う
+8.Rails、ImageMagick等のセットアップ
+*Railsのバージョンアップをする
+*ImageMagickをインストールする
 
-* Database creation
+##インフラ・フロント・バック等の技術選定
+*
 
-* Database initialization
+##実装した機能
+###顧客側
+1.ログイン機能
+2.ログアウト機能
+3.商品一覧表示機能
+4.商品詳細情報表示機能
+5.カート追加機能
+6.カート一覧機能
+7.カート編集機能
+8.注文機能
+9.会員情報編集機能
+10.退会機能
+11.配送先追加・編集機能
+12.注文履歴一覧表示機能
+13.注文履歴詳細表示機能
+###管理者側
+1.ログイン機能
+2.ログアウト機能
+3.注文履歴一覧表示機能
+4.注文履歴詳細表示機能
+5.顧客一覧表示機能
+6.顧客詳細情報表示機能
+7.商品一覧表示機能
+8.商品詳細情報表示機能
+9.商品情報変更機能
+10.ジャンル設定機能
 
-* How to run the test suite
+##設計書
+*
 
-* Services (job queues, cache servers, search engines, etc.)
+##使用方法
+*
 
-* Deployment instructions
-
-* ...
+##作者
+*渡邊翔太
+*佐藤誠也
+*三浦公敬
+*梅本来見

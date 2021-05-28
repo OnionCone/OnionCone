@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>配送先登録/一覧</h1>
+  <div class="row">
+    <%= form_with model: @address,:url => {:action => :create}, local:true do |f| %>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><%= f.label :postal_code, "郵便番号" %></li>(ハイフンなし)
+        <li class="nav-item"><%= f.text_field :postal_code %></li>
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><%= f.label :address, "住所" %></li>
+        <li class="nav-item"><%= f.text_field :address, :size => "60*60" %></li>
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><%= f.label :name, "宛名" %></li>
+        <li class="nav-item"><%= f.text_field :name %></li>
+        <li class="nav-item"><%= f.submit "新規登録", class: "btn btn-sm btn-success" %></li>
+      </ul>
+    <% end %>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>郵便番号</th>
+          <th>住所</th>
+          <th>宛名</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @addresses.each do |addresses| %>
+          <tr>
+            <td><%= addresses.postal_code %></td>
+            <td><%= addresses.address %></td>
+            <td><%= addresses.name %></td>
+            <td><%= link_to '編集する', edit_address_path(addresses.id), class: "btn btn-sm btn-success" %>
+            <%= link_to '削除する', address_path(addresses.id), method: :delete, class: "btn btn-sm btn-danger"%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>配送先編集</h1>
+  <div class="row">
+    <%= form_with model: @addresses,:url => {:action => :update}, local:true do |f| %>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><%= f.label :postal_code, "郵便番号" %></li>(ハイフンなし)
+        <li class="nav-item"><%= f.text_field :postal_code %></li>
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><%= f.label :address, "住所" %></li>
+        <li class="nav-item"><%= f.text_field :address, :size => "60*60" %></li>
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><%= f.label :name, "宛名" %></li>
+        <li class="nav-item"><%= f.text_field :name %></li>
+        <li class="nav-item"><%= f.submit "変更内容を保存", class: "btn btn-sm btn-success" %></li>
+      </ul>
+    <% end %>
+  </div>
+</div>

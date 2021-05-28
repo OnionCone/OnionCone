@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>ログイン</h2>
+  <div class="row">
+    <div class="col-lg-12">
+    <div style="text-align:left">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <ul>
+          <p>会員の方はこちらからログイン</p>
+        <li><p class="field">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </p></li>
+        <li><p class="field">
+          <%= f.label :password, "パスワード" %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </p></li>
+        <%# if devise_mapping.rememberable? %>
+        <li><p class="field">
+          <%#= f.check_box :remember_me %>
+          <%#= f.label :remember_me %>
+        </p></li>
+        <%# end %>
+        <li><p class="actions">
+          <%= f.submit "ログイン",class: 'btn btn-sm btn-primary' %>
+        </p></li>
+        <p>会員登録がお済みでない方</p>
+        <% end %>
+        <%= render "customers/shared/links" %>
+      </ul>
+    </div>
+    </div>
+  </div>
+</div>
