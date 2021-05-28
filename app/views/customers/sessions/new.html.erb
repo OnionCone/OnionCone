@@ -8,11 +8,11 @@
           <p>会員の方はこちらからログイン</p>
         <li><p class="field">
           <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "off" %>
         </p></li>
         <li><p class="field">
           <%= f.label :password, "パスワード" %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+          <%= f.password_field :password, autocomplete: "off" %>
         </p></li>
         <%# if devise_mapping.rememberable? %>
         <li><p class="field">

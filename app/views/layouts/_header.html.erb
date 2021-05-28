@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand navbar-dark ">
+  <nav class="navbar navbar-expand">
   <!-- <a class="navbar-brand" href="#">Always expand</a> -->
   <div id = "header-logo">
     <%#= link_to image_tag(/OnionCone/app/assets/images/Logo.png), root_path %>
@@ -39,8 +39,8 @@
       <div class="container">
         <div class="navbar-nav mr-auto">
             <% elsif customer_signed_in? %>
-              <div class="collapse navbar-collapse" id="navbarsExample02">
-                <%= "ようこそ、 " + customer.last_name + "さん!" %>
+              <div class="collapse navbar-collapse text-white" id="navbarsExample02">
+                <%= "ようこそ、 " + customer.last_name + customer.first_name + "さん!" %>
                 <ul class="navbar-nav mr-auto text-white" >
                   <li class="nav-item">
                     <%= link_to ' My Page', customers_my_page_path, class: 'text-white' %>

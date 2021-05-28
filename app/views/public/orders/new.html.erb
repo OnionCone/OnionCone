@@ -22,11 +22,11 @@
         <li class="nav-item"><%= f.radio_button :address_option, 2%></li>
         <li class="nav-item"><%= f.label :新しいお届け先 %></li></br>
         <li class="nav-item"><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></li>
-        <li class="nav-item"><%= f.text_field :postal_code %></li></br>
+        <li class="nav-item"><%= f.text_field :postal_code, autocomplete: "off" %></li></br>
         <li class="nav-item"><%= f.label :address, "住所" %></li>
-        <li class="nav-item"><%= f.text_field :address, :size => "60*60" %></li></br>
+        <li class="nav-item"><%= f.text_field :address, :size => "60*60", autocomplete: "off" %></li></br>
         <li class="nav-item"><%= f.label :name, "宛名" %></li>
-        <li class="nav-item"><%= f.text_field :name %></li></br>
+        <li class="nav-item"><%= f.text_field :name, autocomplete: "off" %></li></br>
         <li class="nav-item"><%= f.submit "確認画面へ進む",class: 'btn btn-sm btn-primary' %>
       </ul>
     <% end %>

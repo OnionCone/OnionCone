@@ -10,13 +10,13 @@
       <li><p><%= f.label :image, '商品画像' %>
       <%= f.attachment_field :image %></p></li>
       <li><p><%= f.label :name, '商品名' %>
-      <%= f.text_field :name %></p></li>
+      <%= f.text_field :name, autocomplete: "off" %></p></li>
       <li><p><%= f.label :introduction, '商品説明' %>
-      <%= f.text_area :introduction %></p></li>
+      <%= f.text_area :introduction, autocomplete: "off" %></p></li>
       <li><p><%= f.label :genre_id,'ジャンル' %>
       <%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "==選択してください=="} ) %></p></li>
       <li><p><%= f.label :price,'税抜き価格' %>
-      <%= f.text_field :price %> 円</p></li>
+      <%= f.text_field :price, autocomplete: "off" %> 円</p></li>
       <li><p><%= f.label :is_deleted,'販売ステータス' %>
       <%= f.radio_button :is_deleted, "0" %>販売中 <%= f.radio_button :is_deleted, "1" %>販売停止中</p></li>
       <li><p><%= f.submit '編集する', class: "btn btn-secondary" %></p></li>

@@ -4,15 +4,15 @@
     <%= form_with model: @address,:url => {:action => :create}, local:true do |f| %>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"><%= f.label :postal_code, "郵便番号" %></li>(ハイフンなし)
-        <li class="nav-item"><%= f.text_field :postal_code %></li>
+        <li class="nav-item"><%= f.text_field :postal_code, autocomplete: "off" %></li>
       </ul>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"><%= f.label :address, "住所" %></li>
-        <li class="nav-item"><%= f.text_field :address, :size => "60*60" %></li>
+        <li class="nav-item"><%= f.text_field :address, :size => "60*60", autocomplete: "off" %></li>
       </ul>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"><%= f.label :name, "宛名" %></li>
-        <li class="nav-item"><%= f.text_field :name %></li>
+        <li class="nav-item"><%= f.text_field :name, autocomplete: "off" %></li>
         <li class="nav-item"><%= f.submit "新規登録", class: "btn btn-sm btn-success" %></li>
       </ul>
     <% end %>
